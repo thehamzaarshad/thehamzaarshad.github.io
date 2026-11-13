@@ -1,44 +1,39 @@
 <!doctype html>
-<html lang="en" class="theme-1">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#20161F" media="(prefers-color-scheme: dark)" />
     <title>Hamza Arshad</title>
     <style>
-      html, html.theme-1 { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 232 222 200; color-scheme: dark; }
-      html.theme-2 { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 30 30 30; color-scheme: light; }
-      html.theme-3 { --theme-bg-rgb: 2 2 27; --theme-card-rgb: 12 12 44; --theme-accent-rgb: 56 189 248; --theme-text-rgb: 194 194 194; color-scheme: dark; }
-      html.theme-4 { --theme-bg-rgb: 0 0 0; --theme-card-rgb: 18 18 18; --theme-accent-rgb: 221 221 221; --theme-text-rgb: 221 221 221; color-scheme: dark; }
+      :root { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 30 30 30; color-scheme: light; }
+      @media (prefers-color-scheme: dark) {
+        :root { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 232 222 200; color-scheme: dark; }
+      }
     </style>
-    <script>
-      try {
-        var t = Number(localStorage.getItem('theme'));
-        if (!(t >= 1 && t <= 4)) t = 1;
-        document.documentElement.className = 'theme-' + t;
-      } catch (e) {}
-    </script>
-    <link href="/_app/immutable/entry/start.DwPp58Oj.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/BwLm1pcg.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/DExNXC0L.js" rel="modulepreload">
-		<link href="/_app/immutable/entry/app.qq2ex0Eh.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/CkSCF7Rl.js" rel="modulepreload">
-		<link href="/_app/immutable/nodes/0.D0QgkJgj.js" rel="modulepreload">
+    <link href="/_app/immutable/entry/start.CDSNMCSC.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CHZevqbi.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DFSUo05_.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.BkXFqdEq.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/BySiEMLv.js" rel="modulepreload">
+		<link href="/_app/immutable/nodes/0.CDaNolzj.js" rel="modulepreload">
 		
-		<link href="/_app/immutable/assets/0.BAoG3tmL.css" rel="stylesheet">
+		<link href="/_app/immutable/assets/0.BTKJjkS4.css" rel="stylesheet">
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">
 			<script>
 				{
-					__sveltekit_1dn5s9i = {
+					__sveltekit_1j5m1o6 = {
 						base: ""
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.DwPp58Oj.js"),
-						import("/_app/immutable/entry/app.qq2ex0Eh.js")
+						import("/_app/immutable/entry/start.CDSNMCSC.js"),
+						import("/_app/immutable/entry/app.BkXFqdEq.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
