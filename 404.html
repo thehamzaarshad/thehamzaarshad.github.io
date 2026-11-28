@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#20161F" media="(prefers-color-scheme: dark)" />
+    <title>Hamza Arshad</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      :root { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      }
+      :root[data-theme="dark"] { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      :root[data-theme="light"] { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+          .pic-l, .pic-d { }
+      :root[data-theme="light"] .pic-d { display: none !important; }
+      :root[data-theme="dark"] .pic-l { display: none !important; }
+      @media not all and (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-d { display: none !important; } }
+      @media (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-l { display: none !important; } }
+    </style>
+    <script>
+      (function () {
+        var KEY = 'theme', root = document.documentElement, pending = false;
+        function fix() {
+          pending = false;
+          var mode = root.getAttribute('data-theme');
+          var list = document.querySelectorAll('source[media*="prefers-color-scheme"]');
+          for (var i = 0; i < list.length; i++) {
+            var el = list[i], orig = el.getAttribute('data-orig-media');
+            if (!orig) { orig = el.getAttribute('media'); el.setAttribute('data-orig-media', orig); }
+            var want = orig;
+            if (mode) want = (orig.indexOf('dark') > -1) === (mode === 'dark') ? 'all' : 'not all';
+            if (el.getAttribute('media') !== want) el.setAttribute('media', want);
+          }
+        }
+        function apply(mode) {
+          if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode);
+          else root.removeAttribute('data-theme');
+          fix();
+        }
+        window.__setTheme = function (mode) {
+          try { if (mode === 'light' || mode === 'dark') localStorage.setItem(KEY, mode); else localStorage.removeItem(KEY); } catch (e) {}
+          apply(mode);
+        };
+        var saved = null;
+        try { saved = localStorage.getItem(KEY); } catch (e) {}
+        apply(saved);
+        new MutationObserver(function () {
+          if (!pending) { pending = true; requestAnimationFrame(fix); }
+        }).observe(document, { childList: true, subtree: true });
+      })();
+    </script>
+    <script>
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+    <link href="/_app/immutable/entry/start.CNwsMc7J.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DFQY-lBE.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CtlT7rMh.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/Bf-sZJEk.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.C5HGZVRE.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/D0iPZkhj.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/Cqkj3wOs.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/o7G4LTFi.js" rel="modulepreload">
+		<link href="/_app/immutable/nodes/0.DEumtQ6v.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/B5Y40uYy.js" rel="modulepreload">
+		
+		<link href="/_app/immutable/assets/0.KOdegmbR.css" rel="stylesheet">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">
+			<script>
+				{
+					__sveltekit_15stqri = {
+						base: ""
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/_app/immutable/entry/start.CNwsMc7J.js"),
+						import("/_app/immutable/entry/app.C5HGZVRE.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#20161F" media="(prefers-color-scheme: dark)" />
+    <title>Hamza Arshad</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      :root { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      }
+      :root[data-theme="dark"] { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      :root[data-theme="light"] { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+          .pic-l, .pic-d { }
+      :root[data-theme="light"] .pic-d { display: none !important; }
+      :root[data-theme="dark"] .pic-l { display: none !important; }
+      @media not all and (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-d { display: none !important; } }
+      @media (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-l { display: none !important; } }
+    </style>
+    <script>
+      (function () {
+        var KEY = 'theme', root = document.documentElement, pending = false;
+        function fix() {
+          pending = false;
+          var mode = root.getAttribute('data-theme');
+          var list = document.querySelectorAll('source[media*="prefers-color-scheme"]');
+          for (var i = 0; i < list.length; i++) {
+            var el = list[i], orig = el.getAttribute('data-orig-media');
+            if (!orig) { orig = el.getAttribute('media'); el.setAttribute('data-orig-media', orig); }
+            var want = orig;
+            if (mode) want = (orig.indexOf('dark') > -1) === (mode === 'dark') ? 'all' : 'not all';
+            if (el.getAttribute('media') !== want) el.setAttribute('media', want);
+          }
+        }
+        function apply(mode) {
+          if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode);
+          else root.removeAttribute('data-theme');
+          fix();
+        }
+        window.__setTheme = function (mode) {
+          try { if (mode === 'light' || mode === 'dark') localStorage.setItem(KEY, mode); else localStorage.removeItem(KEY); } catch (e) {}
+          apply(mode);
+        };
+        var saved = null;
+        try { saved = localStorage.getItem(KEY); } catch (e) {}
+        apply(saved);
+        new MutationObserver(function () {
+          if (!pending) { pending = true; requestAnimationFrame(fix); }
+        }).observe(document, { childList: true, subtree: true });
+      })();
+    </script>
+    <script>
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+    <link href="./_app/immutable/entry/start.CNwsMc7J.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DFQY-lBE.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CtlT7rMh.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Bf-sZJEk.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.C5HGZVRE.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D0iPZkhj.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Cqkj3wOs.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/o7G4LTFi.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.DEumtQ6v.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B5Y40uYy.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/3.DnGeOGbZ.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CJPG_qFQ.js" rel="modulepreload">
+		<!--14tzwpa--><!----><title>Hamza Arshad | CV</title>
+		<link href="./_app/immutable/assets/0.KOdegmbR.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.DJzPoYLz.css" rel="stylesheet">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[0--><!--[--><!--[--><!--[--><main class="cv-wrap min-h-screen bg-theme-bg p-4 text-theme-text svelte-14tzwpa"><div class="no-print mx-auto mb-3 flex max-w-4xl items-center justify-between pt-2 svelte-14tzwpa"><a href="/" class="font-semibold text-theme-accent underline svelte-14tzwpa">← Back</a> <div class="flex items-center gap-2 svelte-14tzwpa"><button type="button" aria-label="Theme: Auto. Tap to change" class="relative z-50 flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-full border border-theme-accent/40 bg-theme-card px-4 text-sm font-semibold text-theme-accent shadow"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!--[-1--><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path><!--]--></svg> <span>Auto</span></button><!----> <button class="pr hidden rounded-lg border border-theme-accent px-4 py-2 font-semibold text-theme-accent md:inline-block svelte-14tzwpa">Print</button> <a class="dl rounded-lg bg-theme-accent px-4 py-2 font-semibold svelte-14tzwpa" href="/cv.pdf" download="Hamza_Arshad_CV.pdf" aria-live="polite">Download PDF</a></div></div> <article id="cv-doc" class="cv mx-auto max-w-4xl rounded-2xl border border-theme-accent/40 bg-theme-card p-7 svelte-14tzwpa"><header class="head svelte-14tzwpa"><h1 class="svelte-14tzwpa">Hamza Arshad</h1> <p class="role text-theme-accent svelte-14tzwpa">Student &amp; Self Taught Developer</p> <p class="tag svelte-14tzwpa">Self-taught developer from Pakistan building open source projects, Android apps and AI tools.</p></header> <div class="grid svelte-14tzwpa"><aside class="svelte-14tzwpa"><section class="svelte-14tzwpa"><h2 class="svelte-14tzwpa">Contact</h2> <ul class="plain svelte-14tzwpa"><!--[0--><li class="svelte-14tzwpa"><b class="svelte-14tzwpa"><img src="/assets/icon-location-light.svg" alt="" class="pic-l ico mr-1 inline-block h-4 w-4 align-text-bottom"/> <img src="/assets/icon-location-dark.svg" alt="" aria-hidden="true" class="pic-d ico mr-1 inline-block h-4 w-4 align-text-bottom"/><!---->Location</b><br class="svelte-14tzwpa"/>Kharian, Gujrat, Pakistan</li><!--]--> <!--[--><li class="svelte-14tzwpa"><b class="svelte-14tzwpa">Github</b><br class="svelte-14tzwpa"/><a href="https://github.com/thehamzaarshad" class="svelte-14tzwpa">github.com/thehamzaarshad</a></li><li class="svelte-14tzwpa"><b class="svelte-14tzwpa">Whatsapp</b><br class="svelte-14tzwpa"/><a href="https://wa.me/923400129843" class="svelte-14tzwpa">+923400129843</a></li><li class="svelte-14tzwpa"><b class="svelte-14tzwpa">Website</b><br class="svelte-14tzwpa"/><a href="https://thehamzaarshad.github.io" class="svelte-14tzwpa">thehamzaarshad.github.io</a></li><!--]--></ul></section> <section class="svelte-14tzwpa"><h2 class="svelte-14tzwpa">Skills</h2> <div class="chips svelte-14tzwpa"><!--[--><span class="svelte-14tzwpa">Python</span><span class="svelte-14tzwpa">JavaScript</span><span class="svelte-14tzwpa">Git</span><!--]--></div></section> <!--[--><!--]--></aside> <div class="body svelte-14tzwpa"><section class="svelte-14tzwpa"><h2 class="svelte-14tzwpa">About</h2> <p class="about svelte-14tzwpa">I work as Student &amp; Self Taught Developer. Currently working on Open Source Projects. Currently learning TypeScript, Next.js &amp; Svelte. Based in Kharian, Gujrat, Pakistan.</p></section> <!--[--><section class="svelte-14tzwpa"><h2 class="svelte-14tzwpa">Projects</h2> <!--[0--><!--[--><div class="item svelte-14tzwpa"><div class="row svelte-14tzwpa"><b class="svelte-14tzwpa">Contribution Pulse</b> <!--[0--><a href="https://github.com/thehamzaarshad/thehamzaarshad" class="svelte-14tzwpa">github.com/thehamzaarshad/thehamzaarshad</a><!--]--></div> <!--[0--><p class="svelte-14tzwpa">ICU-style bedside monitor driven by my real GitHub activity, updated every ~5 minutes via GitHub Actions</p><!--]--></div><div class="item svelte-14tzwpa"><div class="row svelte-14tzwpa"><b class="svelte-14tzwpa">Muslim Pro AI</b> <!--[0--><a href="https://github.com/thehamzaarshad/muslim-pro-ai" class="svelte-14tzwpa">github.com/thehamzaarshad/muslim-pro-ai</a><!--]--></div> <!--[0--><p class="svelte-14tzwpa">An open-source Muslim chatbot trained on the Quran</p><!--]--></div><div class="item svelte-14tzwpa"><div class="row svelte-14tzwpa"><b class="svelte-14tzwpa">VolBlock</b> <!--[0--><a href="https://github.com/thehamzaarshad/volblock" class="svelte-14tzwpa">github.com/thehamzaarshad/volblock</a><!--]--></div> <!--[0--><p class="svelte-14tzwpa">Android Accessibility Service that blocks the volume keys</p><!--]--></div><div class="item svelte-14tzwpa"><div class="row svelte-14tzwpa"><b class="svelte-14tzwpa">Al-Quran Majeed WebView</b> <!--[0--><a href="https://github.com/thehamzaarshad/al-quran-majeed-webview" class="svelte-14tzwpa">github.com/thehamzaarshad/al-quran-majeed-webview</a><!--]--></div> <!--[0--><p class="svelte-14tzwpa">Simple Android WebView app to read Al-Quran Majeed</p><!--]--></div><!--]--><!--]--></section><!--]--></div></div></article></main><!--]--><!--]--><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_15stqri = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.CNwsMc7J.js"),
+						import("./_app/immutable/entry/app.C5HGZVRE.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#20161F" media="(prefers-color-scheme: dark)" />
+    <title>Hamza Arshad</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      :root { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      }
+      :root[data-theme="dark"] { --theme-bg-rgb: 32 22 31; --theme-card-rgb: 44 31 43; --theme-accent-rgb: 220 165 76; --theme-text-rgb: 242 230 201; color-scheme: dark; }
+      :root[data-theme="light"] { --theme-bg-rgb: 255 255 255; --theme-card-rgb: 248 244 232; --theme-accent-rgb: 177 144 31; --theme-text-rgb: 43 36 16; color-scheme: light; }
+          .pic-l, .pic-d { }
+      :root[data-theme="light"] .pic-d { display: none !important; }
+      :root[data-theme="dark"] .pic-l { display: none !important; }
+      @media not all and (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-d { display: none !important; } }
+      @media (prefers-color-scheme: dark) { :root:not([data-theme]) .pic-l { display: none !important; } }
+    </style>
+    <script>
+      (function () {
+        var KEY = 'theme', root = document.documentElement, pending = false;
+        function fix() {
+          pending = false;
+          var mode = root.getAttribute('data-theme');
+          var list = document.querySelectorAll('source[media*="prefers-color-scheme"]');
+          for (var i = 0; i < list.length; i++) {
+            var el = list[i], orig = el.getAttribute('data-orig-media');
+            if (!orig) { orig = el.getAttribute('media'); el.setAttribute('data-orig-media', orig); }
+            var want = orig;
+            if (mode) want = (orig.indexOf('dark') > -1) === (mode === 'dark') ? 'all' : 'not all';
+            if (el.getAttribute('media') !== want) el.setAttribute('media', want);
+          }
+        }
+        function apply(mode) {
+          if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode);
+          else root.removeAttribute('data-theme');
+          fix();
+        }
+        window.__setTheme = function (mode) {
+          try { if (mode === 'light' || mode === 'dark') localStorage.setItem(KEY, mode); else localStorage.removeItem(KEY); } catch (e) {}
+          apply(mode);
+        };
+        var saved = null;
+        try { saved = localStorage.getItem(KEY); } catch (e) {}
+        apply(saved);
+        new MutationObserver(function () {
+          if (!pending) { pending = true; requestAnimationFrame(fix); }
+        }).observe(document, { childList: true, subtree: true });
+      })();
+    </script>
+    <script>
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+    <link href="./_app/immutable/entry/start.CNwsMc7J.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DFQY-lBE.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CtlT7rMh.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Bf-sZJEk.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.C5HGZVRE.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D0iPZkhj.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Cqkj3wOs.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/o7G4LTFi.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.DEumtQ6v.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B5Y40uYy.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/2.DE_qIMIn.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CJPG_qFQ.js" rel="modulepreload">
+		<!--1uha8ag--><meta name="description" content="Self-taught developer from Pakistan building open source projects, Android apps and AI tools."/><!----><title>Hamza Arshad | Student &amp; Self Taught Developer</title>
+		<link href="./_app/immutable/assets/0.KOdegmbR.css" rel="stylesheet">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[0--><!--[--><!--[--><!--[--><main id="main" class="min-h-screen bg-theme-bg text-theme-text"><div class="mx-auto max-w-4xl px-4 pb-6 pt-4 text-center"><div class="mb-3 flex justify-end"><button type="button" aria-label="Theme: Auto. Tap to change" class="relative z-50 flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-full border border-theme-accent/40 bg-theme-card px-4 text-sm font-semibold text-theme-accent shadow"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!--[-1--><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path><!--]--></svg> <span>Auto</span></button><!----></div> <h1 class="sr-only">Hamza Arshad</h1> <img src="/assets/banner-light.svg" alt="Hamza Arshad" class="pic-l w-full"/> <img src="/assets/banner-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----> <img src="/assets/typing-light.svg" alt="Assalam-o-Alaikum!" class="pic-l mx-auto mt-2"/> <img src="/assets/typing-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto mt-2"/><!----> <!--[0--><img src="https://github.com/thehamzaarshad.png?size=256" alt="Hamza Arshad" width="112" height="112" loading="lazy" decoding="async" class="mx-auto mt-5 h-28 w-28 rounded-full border-2 border-theme-accent object-cover shadow-lg"/><!--]--> <div class="mt-4 flex flex-wrap items-center justify-center gap-2"><a href="https://github.com/thehamzaarshad?tab=repositories"><img src="/assets/stat-stars-light.svg" alt="GitHub stars" class="pic-l "/> <img src="/assets/stat-stars-dark.svg" alt="" aria-hidden="true" class="pic-d "/><!----></a> <a href="https://github.com/thehamzaarshad?tab=followers"><img src="/assets/stat-followers-light.svg" alt="GitHub followers" class="pic-l "/> <img src="/assets/stat-followers-dark.svg" alt="" aria-hidden="true" class="pic-d "/><!----></a></div> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <img src="/assets/heading-about-me-light.svg" alt="About Me" class="pic-l mx-auto h-12"/> <img src="/assets/heading-about-me-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <ul class="mx-auto mt-5 max-w-xl space-y-2 text-left"><!--[--><li style="padding-left:2rem;text-indent:-2rem"><!----><img src="/assets/icon-work-light.svg" alt="" class="pic-l mr-3 inline-block h-5 w-5 align-text-bottom" /><img src="/assets/icon-work-dark.svg" alt="" aria-hidden="true" class="pic-d mr-3 inline-block h-5 w-5 align-text-bottom" />I work as <b>Student</b> & <b>Self Taught Developer</b><!----></li><li style="padding-left:2rem;text-indent:-2rem"><!----><img src="/assets/icon-target-light.svg" alt="" class="pic-l mr-3 inline-block h-5 w-5 align-text-bottom" /><img src="/assets/icon-target-dark.svg" alt="" aria-hidden="true" class="pic-d mr-3 inline-block h-5 w-5 align-text-bottom" />Currently working on <b>Open Source Projects</b><!----></li><li style="padding-left:2rem;text-indent:-2rem"><!----><img src="/assets/icon-learn-light.svg" alt="" class="pic-l mr-3 inline-block h-5 w-5 align-text-bottom" /><img src="/assets/icon-learn-dark.svg" alt="" aria-hidden="true" class="pic-d mr-3 inline-block h-5 w-5 align-text-bottom" />Currently learning <b>TypeScript, Next.js & Svelte</b><!----></li><li style="padding-left:2rem;text-indent:-2rem"><!----><img src="/assets/icon-location-light.svg" alt="" class="pic-l mr-3 inline-block h-5 w-5 align-text-bottom" /><img src="/assets/icon-location-dark.svg" alt="" aria-hidden="true" class="pic-d mr-3 inline-block h-5 w-5 align-text-bottom" />Based in <b>Kharian, Gujrat, Pakistan</b><!----></li><!--]--></ul> <div class="mt-5 flex flex-wrap items-center justify-center gap-2"><!--[--><img src="/assets/skill-python-light.svg" alt="Python" class="pic-l h-10"/> <img src="/assets/skill-python-dark.svg" alt="" aria-hidden="true" class="pic-d h-10"/><img src="/assets/skill-javascript-light.svg" alt="JavaScript" class="pic-l h-10"/> <img src="/assets/skill-javascript-dark.svg" alt="" aria-hidden="true" class="pic-d h-10"/><img src="/assets/skill-git-light.svg" alt="Git" class="pic-l h-10"/> <img src="/assets/skill-git-dark.svg" alt="" aria-hidden="true" class="pic-d h-10"/><!--]--></div> <div class="mt-3 flex flex-wrap items-center justify-center gap-2"><!--[--><!--[0--><a href="https://github.com/thehamzaarshad"><img src="/assets/social-github-light.svg" alt="Github" class="pic-l h-11"/> <img src="/assets/social-github-dark.svg" alt="" aria-hidden="true" class="pic-d h-11"/><!----></a><!--]--><!--[0--><a href="https://wa.me/923400129843"><img src="/assets/social-whatsapp-light.svg" alt="Whatsapp" class="pic-l h-11"/> <img src="/assets/social-whatsapp-dark.svg" alt="" aria-hidden="true" class="pic-d h-11"/><!----></a><!--]--><!--]--></div> <!--[--><img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <img src="/assets/heading-sec-projects-light.svg" alt="Projects" class="pic-l mx-auto h-12"/> <img src="/assets/heading-sec-projects-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <!--[0--><div class="mt-4 flex flex-wrap justify-center gap-2"><!--[--><!--[0--><a href="https://github.com/thehamzaarshad/thehamzaarshad" class="block w-full sm:w-[48%]"><img src="/assets/card-projects-0-light.svg" alt="Contribution Pulse" class="pic-l w-full"/> <img src="/assets/card-projects-0-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a><!--]--><!--[0--><a href="https://github.com/thehamzaarshad/muslim-pro-ai" class="block w-full sm:w-[48%]"><img src="/assets/card-projects-1-light.svg" alt="Muslim Pro AI" class="pic-l w-full"/> <img src="/assets/card-projects-1-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a><!--]--><!--[0--><a href="https://github.com/thehamzaarshad/volblock" class="block w-full sm:w-[48%]"><img src="/assets/card-projects-2-light.svg" alt="VolBlock" class="pic-l w-full"/> <img src="/assets/card-projects-2-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a><!--]--><!--[0--><a href="https://github.com/thehamzaarshad/al-quran-majeed-webview" class="block w-full sm:w-[48%]"><img src="/assets/card-projects-3-light.svg" alt="Al-Quran Majeed WebView" class="pic-l w-full"/> <img src="/assets/card-projects-3-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a><!--]--><!--]--></div><!--]--><!--]--> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <a href="/cv" class="mb-6 mt-4 inline-block rounded-lg bg-theme-accent px-4 py-2 font-semibold text-theme-bg">View my CV</a> <section id="contact" class="mt-2 text-left"><h2 class="text-center text-2xl font-bold text-theme-accent">Get in touch</h2> <p class="mt-2 text-center text-sm text-theme-text/80">Send me a message and I will reply by email.</p> <form class="mx-auto mt-4 max-w-xl space-y-3"><input type="text" value="" required="" maxlength="100" placeholder="Your name" aria-label="Your name" class="w-full rounded-lg border border-theme-accent/40 bg-theme-card p-3 text-theme-text"/> <input type="email" value="" required="" maxlength="200" placeholder="Your email" aria-label="Your email" class="w-full rounded-lg border border-theme-accent/40 bg-theme-card p-3 text-theme-text"/> <textarea required="" minlength="5" maxlength="2000" rows="5" placeholder="Your message" aria-label="Your message" class="w-full rounded-lg border border-theme-accent/40 bg-theme-card p-3 text-theme-text"></textarea> <input type="text" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"/> <button type="submit" class="w-full rounded-lg bg-theme-accent px-4 py-3 font-semibold text-theme-bg disabled:opacity-60">Send message</button> <!--[-1--><!--]--></form> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----></section><!----> <img src="/assets/heading-contribution-pulse-light.svg" alt="Contribution Pulse" class="pic-l mx-auto h-12"/> <img src="/assets/heading-contribution-pulse-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <img src="/assets/ecg-light.svg" alt="Contribution Pulse - live ICU-style monitor of my GitHub activity" class="pic-l mt-4 w-full rounded-xl"/> <img src="/assets/ecg-dark.svg" alt="" aria-hidden="true" class="pic-d mt-4 w-full rounded-xl"/><!----> <p class="mt-3 text-sm text-theme-text/80">An ICU bedside monitor driven by my real GitHub activity. It behaves like a real heart: it rests while I'm idle, speeds up while I work, and recovers afterwards. Updates every ~5 minutes via GitHub Actions.</p> <details class="mt-4 rounded-xl border border-theme-accent/40 bg-theme-card p-4 text-left"><summary class="cursor-pointer font-semibold text-theme-accent"><img src="/assets/icon-vitals-light.svg" alt="" class="pic-l mr-2 inline-block h-5 w-5 align-text-bottom"/> <img src="/assets/icon-vitals-dark.svg" alt="" aria-hidden="true" class="pic-d mr-2 inline-block h-5 w-5 align-text-bottom"/><!---->How to read my vitals</summary> <!--[-1--><!--]--> <ul class="mt-3 space-y-2"><!--[--><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">HR (BPM)</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Live effort. Rests at ~70. Every recent event (push, PR, review, issue) ramps HR up toward ~130 within minutes, and it recovers over ~35 minutes after I stop</p></li><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">SpO2 (%)</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Oxygen saturation. Healthy 97-99%, dips about 1% at full effort. Consistency (active days) nudges it slightly</p></li><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">NIBP (mmHg)</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Blood pressure. ~118/76 at rest. Systolic rises up to ~148 while working, diastolic barely moves</p></li><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">RESP (rpm)</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Breathing. 14 at rest, up to 24 while working. The breathing sway on the ECG follows it</p></li><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">HRV (RMSSD ms)</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Variability. 35-60 ms at rest depending on consistency, drops while working</p></li><li class="rounded-lg border border-theme-accent/20 p-3"><div class="flex items-baseline justify-between gap-3"><span class="font-semibold">NEWS2</span> <!--[-1--><!--]--></div> <p class="mt-1 text-sm text-theme-text/80">Overall early-warning score. The NHS NEWS2 banding applied to HR, SpO2, systolic BP and RR</p></li><!--]--></ul> <!--[0--><p class="mt-3 text-sm text-theme-text/80"><!----><b>Rhythms:</b> normal sinus rhythm at rest, tachycardia while working hard, then back to normal. After 2+ days of no activity: bradycardia → irregular rhythm (PVCs) → <b>asystole</b> after 7 days with no activity.<!----></p><!--]--> <!--[0--><p class="mt-2 text-sm text-theme-text/80"><!----><b>Alarms:</b> NEWS2 5-6 = <i>urgent review</i>, NEWS2 7+ = <i>escalate</i>. The bottom strip shows my last 30 days of contributions.<!----></p><!--]--></details> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <img src="/assets/heading-github-engineering-stats-light.svg" alt="GitHub Engineering Stats" class="pic-l mx-auto h-12"/> <img src="/assets/heading-github-engineering-stats-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <div class="mt-4 grid items-stretch gap-3 sm:grid-cols-2"><a href="https://github.com/thehamzaarshad" class="block"><img src="/assets/stat-streak-light.svg" alt="GitHub contribution streak" class="pic-l w-full"/> <img src="/assets/stat-streak-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a> <a href="https://github.com/thehamzaarshad" class="block"><img src="/assets/stat-langs-light.svg" alt="Most used programming languages" class="pic-l w-full"/> <img src="/assets/stat-langs-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a></div> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <img src="/assets/heading-contribution-analytics-light.svg" alt="Contribution Analytics" class="pic-l mx-auto h-12"/> <img src="/assets/heading-contribution-analytics-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <a href="https://github.com/thehamzaarshad" class="mt-4 block"><img src="/assets/stat-graph-light.svg" alt="Contribution graph, last 31 days" class="pic-l w-full"/> <img src="/assets/stat-graph-dark.svg" alt="" aria-hidden="true" class="pic-d w-full"/><!----></a> <img src="/assets/divider-light.svg" alt="" class="pic-l my-6 w-full"/> <img src="/assets/divider-dark.svg" alt="" aria-hidden="true" class="pic-d my-6 w-full"/><!----> <img src="/assets/heading-contribution-activity-light.svg" alt="Contribution Activity" class="pic-l mx-auto h-12"/> <img src="/assets/heading-contribution-activity-dark.svg" alt="" aria-hidden="true" class="pic-d mx-auto h-12"/><!----> <img src="/assets/snake-light.svg" alt="Animated snake eating my GitHub contribution grid" class="pic-l mt-4 w-full"/> <img src="/assets/snake-dark.svg" alt="" aria-hidden="true" class="pic-d mt-4 w-full"/><!----> <img src="/assets/footer-light.svg" alt="" class="pic-l mt-6 w-full"/> <img src="/assets/footer-dark.svg" alt="" aria-hidden="true" class="pic-d mt-6 w-full"/><!----></div></main><!--]--><!--]--><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_15stqri = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.CNwsMc7J.js"),
+						import("./_app/immutable/entry/app.C5HGZVRE.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>
